@@ -29,7 +29,6 @@ func Append(data int) {
 		temp = temp.next
 	}
 	temp.next = node
-
 }
 
 // Prepend 在鏈結最前面新增一筆節點
