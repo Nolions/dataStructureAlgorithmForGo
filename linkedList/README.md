@@ -97,3 +97,44 @@ func Size(node *Node) (size int) {
 	return size
 }
 ```
+
+## Remove by value
+
+***移除鏈結中特定值的節點***
+
+step1. 新建一個`find`節點，以便紀錄之後找到節點
+
+step2. 透過迴圈方式尋找符合目標的節點
+
+step3. 檢查`step2`是否有找到符合目標的值，如果沒有直接結束
+
+step4. 新建一個新節點`temp`，並指向`find`節點的鏈結
+
+step5. 將`find`節點的鏈結指向`temp`節點的鏈結
+
+> 在`step 2`中需要額外去檢查符合目標的值是不是開頭的節點
+
+```go
+func RemoveVal(data int) {
+    var findNode *Node = nil
+	
+	for p := Head; p.next != nil; p = p.next {
+		if p.value == data {
+			Head = Head.next
+			return
+		}
+
+		if p.next.value == data {
+			findNode = p
+			break
+		}
+	}
+
+	if findNode == nil {
+		return
+	}
+
+    temp := findNode.next
+	findNode.next = temp.next
+}
+```
