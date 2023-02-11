@@ -50,6 +50,37 @@ func Prepend(data int) {
 }
 ```
 
+## Reverse
+
+***反轉整個鏈結列表***
+
+step1. 新增`mid`、`last`兩個節點，分別作為**中間**與**結尾**節點用
+
+step2. 將`last`節點指向`mid`節點
+
+step3. 將最前面節點傳遞給`mid`節點
+
+step4. 最前面節點往前一個節點
+
+step5. 反轉原本最前面節點與中間節點順序關係
+
+step6. 透過迴圈方式不段執行`step2`~`step5`步驟，直到最前面節點為空
+
+```go
+func Reverse() *Node {
+    var mid, last *Node
+
+    for Head != nil {
+        last = mid       // 中間節點傳遞給結尾節點
+        mid = Head       // 最前面節點傳遞給中間節點
+        Head = Head.next // 最前面節點往前一個節點
+        mid.next = last  // 反轉原本最前面節點與中間節點順序關係
+    }
+
+    return mid
+}
+```
+
 ## Length
 
 ***計算鏈結長度***
