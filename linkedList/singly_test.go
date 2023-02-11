@@ -66,6 +66,15 @@ func TestRemoveValNoFound(t *testing.T) {
 	assert.Equal(t, []int{30, 10, 40, 40}, toSlice(Head))
 }
 
+func TestMerge(t *testing.T) {
+	initNode()
+
+	Merge(NewNode(2, NewNode(10, nil)))
+
+	assert.Equal(t, 6, Size(Head))
+	assert.Equal(t, []int{30, 10, 40, 40, 2, 10}, toSlice(Head))
+}
+
 func toSlice(node *Node) []int {
 	var arr []int
 	temp := node

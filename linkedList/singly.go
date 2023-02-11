@@ -81,6 +81,25 @@ func RemoveVal(data int) {
 	findNode.next = q.next
 }
 
+// Merge 合併兩個鏈結
+func Merge(node *Node) {
+	final := Head
+	for final.next != nil {
+		final = final.next
+	}
+	final.next = node
+}
+
+// Size 計算鏈結長度
+func Size(node *Node) (size int) {
+	for node != nil {
+		size++
+		node = node.next
+	}
+
+	return size
+}
+
 // Print 列印出整的鏈結節點
 func print(node *Node) {
 	temp := node
@@ -93,16 +112,4 @@ func print(node *Node) {
 
 // TODO 鏈結由小到大排序
 
-// TODO 合併兩個鏈結
-
 // TODO 新增一個節點至從小到大排訊鏈結
-
-// Size 計算鏈結長度
-func Size(node *Node) (size int) {
-	for node != nil {
-		size++
-		node = node.next
-	}
-
-	return size
-}

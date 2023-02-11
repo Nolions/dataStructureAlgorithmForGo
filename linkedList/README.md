@@ -138,3 +138,33 @@ func RemoveVal(data int) {
 	findNode.next = temp.next
 }
 ```
+
+## Merge
+
+鏈結列表的合併
+
+鏈結列表的合併與`在鏈結最後新增一筆節點`方法相似
+
+step1. 找到鏈結列表中最後一個節點
+
+step2. 將最後一個節點的鏈結欄位指向剛剛建立的新節點
+
+```go
+func Merge(node *Node) {
+    if Head == nil {
+        Head = node
+        return
+    }
+	
+	if node == nil {
+	    return 	
+    }
+	
+    final := Head
+    
+	for final.next != nil {
+        final = final.next
+    }
+    final.next = node
+}
+```

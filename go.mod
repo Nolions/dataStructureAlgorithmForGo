@@ -1,4 +1,4 @@
-module github.com/Nolions/dataStructureAndAlgorithmForGo
+module github.com/Nolions/dataStructureAlgorithmForGo
 
 go 1.19
 
