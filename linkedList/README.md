@@ -49,3 +49,20 @@ func Prepend(data int) {
     Head.next = temp
 }
 ```
+
+## Length
+
+***計算鏈結長度***
+
+使用迴圈，並透過判斷節點的鏈結指向事不是空方式來計算鏈結列表長度
+
+```go
+func Size(node *Node) (size int) {
+	for node != nil {
+		size++
+		node = node.next
+	}
+
+	return size
+}
+```
