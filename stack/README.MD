@@ -1,12 +1,10 @@
 # STACK 堆疊
 
-資料採後進先出進行存取
+資料採進先後出(後進先出)進行存取
 
-並且可以透過陣列(Array)與鏈結列表(Linked List)的方式來實作
+並且可以透過陣列(Array)與鏈結列表(Linked List)的方式來實作，這邊使用陣列(Array)來實作
 
-## 透過Array實現
-
-### Pop
+## Pop
 
 ```go
 func (s *Stack) Pop() stack.Data {
@@ -24,5 +22,3 @@ func (s *Stack) Push(data stack.Data) {
 	s.list = append(s.list, data)
 }
 ```
-
-## 透過鏈結實現
