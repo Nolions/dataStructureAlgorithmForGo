@@ -6,28 +6,26 @@ type Node struct {
 	right *Node
 }
 
-func NewNode(value int) *Node {
+func node(value int) *Node {
 	var n Node
 	n.value = value
 	return &n
 }
 
-func (n *Node) Insert(node *Node) {
-	//fmt.Println(node.value)
-	if node.value < n.value {
+// Insert
+// 新增樹節點
+func (n *Node) Insert(v int) {
+	if v < n.value {
 		if n.left == nil {
-			//fmt.Println("aa")
-			n.left = node
-			//fmt.Printf("aa:%v\n", n.left)
+			n.left = node(v)
 		} else {
-			n.left.Insert(node)
-			//fmt.Printf("bb:%v\n", n.left)
+			n.left.Insert(v)
 		}
 	} else {
 		if n.right == nil {
-			n.right = node
+			n.right = node(v)
 		} else {
-			n.right.Insert(node)
+			n.right.Insert(v)
 		}
 	}
 }
@@ -54,10 +52,8 @@ func (n *Node) Inorder() {
 	if n != nil {
 		// 往左走
 		n.left.Inorder()
-
 		// 印出
 		data = append(data, n.value)
-
 		// 往右走
 		n.right.Inorder()
 	}
@@ -69,10 +65,8 @@ func (n *Node) Preorder() {
 	if n != nil {
 		// 印出
 		data = append(data, n.value)
-
 		// 往左走
 		n.left.Preorder()
-
 		// 往右走
 		n.right.Preorder()
 	}

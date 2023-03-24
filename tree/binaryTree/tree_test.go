@@ -10,15 +10,15 @@ var tree *Node
 func setup() {
 	data = []int{}
 
-	tree = NewNode(1)
+	tree = node(1)
 
 	// left tree
-	tree.AppendLeftNode(NewNode(2))
-	tree.left.AppendLeftNode(NewNode(3))
-	tree.left.AppendRightNode(NewNode(4))
+	tree.AppendLeftNode(node(2))
+	tree.left.AppendLeftNode(node(3))
+	tree.left.AppendRightNode(node(4))
 
 	// right tree
-	tree.AppendRightNode(NewNode(5))
+	tree.AppendRightNode(node(5))
 
 }
 

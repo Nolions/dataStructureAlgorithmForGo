@@ -8,10 +8,14 @@ import (
 var tree *Node
 
 func setup() {
+	tree = &Node{
+		value: 4,
+	}
+	data = []int{}
+
 	nums := []int{2, 7, 1, 3}
-	tree = NewNode(4)
 	for _, v := range nums {
-		tree.Insert(NewNode(v))
+		tree.Insert(v)
 	}
 }
 
