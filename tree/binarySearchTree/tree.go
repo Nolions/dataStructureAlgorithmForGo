@@ -30,6 +30,8 @@ func (n *Node) Insert(v int) {
 	}
 }
 
+// Find
+// 尋找節點
 func (n *Node) Find(i int) *Node {
 	if n == nil {
 		return nil
