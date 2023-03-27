@@ -36,3 +36,17 @@ func TestNode_Inorder(t *testing.T) {
 	tree.Inorder()
 	assert.Equal(t, []int{1, 2, 3, 4, 7}, data)
 }
+
+func TestNode_Find(t *testing.T) {
+	setup()
+	actual := tree.Find(2)
+	assert.Equal(t, 2, actual.value)
+	assert.Equal(t, 1, actual.left.value)
+	assert.Equal(t, 3, actual.right.value)
+}
+
+func TestNode_Find_NofFound(t *testing.T) {
+	setup()
+	actual := tree.Find(10)
+	assert.Nil(t, actual)
+}

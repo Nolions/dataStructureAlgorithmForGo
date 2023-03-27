@@ -30,6 +30,21 @@ func (n *Node) Insert(v int) {
 	}
 }
 
+func (n *Node) Find(i int) *Node {
+	if n == nil {
+		return nil
+	}
+
+	p := n
+	if p.value == i {
+		return p
+	} else if p.value < i {
+		return p.right.Find(i)
+	} else {
+		return p.left.Find(i)
+	}
+}
+
 var data []int
 
 // Postorder
