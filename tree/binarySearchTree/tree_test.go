@@ -50,3 +50,24 @@ func TestNode_Find_NofFound(t *testing.T) {
 	actual := tree.Find(10)
 	assert.Nil(t, actual)
 }
+
+func TestNode_DeleteNode_On_Root(t *testing.T) {
+	setup()
+	node := tree.DeleteNode(4)
+	node.Postorder()
+	assert.Equal(t, []int{1, 3, 2, 7}, data)
+}
+
+func TestNode_DeleteNode_On_Left_Tree(t *testing.T) {
+	setup()
+	node := tree.DeleteNode(3)
+	node.Postorder()
+	assert.Equal(t, []int{1, 2, 7, 4}, data)
+}
+
+func TestNode_DeleteNode_On_Right_Tree(t *testing.T) {
+	setup()
+	node := tree.DeleteNode(7)
+	node.Postorder()
+	assert.Equal(t, []int{1, 3, 2, 4}, data)
+}

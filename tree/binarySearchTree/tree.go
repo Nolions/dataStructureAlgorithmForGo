@@ -47,6 +47,58 @@ func (n *Node) Find(i int) *Node {
 	}
 }
 
+// DeleteNode
+// 刪除節點
+// 需要去判斷要刪除的節點是在根節點或是左/右節點上
+// 如果在根節點上則
+func (n *Node) DeleteNode(i int) *Node {
+	if n == nil {
+		return nil
+	}
+
+	p := n
+	// 刪除的節點為根節點
+	if p.value == i {
+		// 只有右節點
+		if p.left == nil {
+			p = p.right
+			return p
+		}
+
+		// 只有左節點
+		if p.right == nil {
+			p = p.left
+			return p
+		}
+
+		// 同時有左右節點
+		// 找到根節點的右子樹中最左邊的樹葉節點
+		c := p.right
+		for c.left != nil {
+			c = c.left
+		}
+
+		// 把根節點的左子樹接到左子樹中最左邊
+		c.left = p.left
+
+		// 根節點替代為最初根節點的右側節點
+		p = p.right
+		return p
+	}
+
+	// 節點在右節點
+	if p.value < i {
+		p.right = p.right.DeleteNode(i)
+	}
+
+	// 節點在左節點
+	if p.value > i {
+		p.left = p.left.DeleteNode(i)
+	}
+
+	return p
+}
+
 var data []int
 
 // Postorder
