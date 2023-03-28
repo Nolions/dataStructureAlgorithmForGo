@@ -50,8 +50,8 @@ func (n *Node) Find(i int) *Node {
 // DeleteNode
 // 刪除節點
 // 需要去判斷要刪除的節點是在根節點或是左/右節點上
-// 如果在根節點上則
 func (n *Node) DeleteNode(i int) *Node {
+
 	if n == nil {
 		return nil
 	}
