@@ -30,3 +30,8 @@ func TestGraph_String(t *testing.T) {
 	setup()
 	assert.Equal(t, "A -> B C D \nB -> A E \nC -> A E \nD -> A \nE -> B C F \nF -> E \n", graph.String())
 }
+
+func TestTraverse(t *testing.T) {
+	setup()
+	assert.Equal(t, []string{"A", "B", "C", "D", "E", "F"}, graph.Traverse())
+}

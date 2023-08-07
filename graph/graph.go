@@ -1,6 +1,8 @@
 package graph
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	Val string
@@ -30,10 +32,10 @@ func (g *Graph) AddEdge(h, t *Node) {
 func (g *Graph) String() string {
 	str := ""
 	for _, node := range g.Nodes {
-		str += node.String() + " -> "
+		str += node.string() + " -> "
 		nNodes := g.Edges[*node]
 		for _, nNode := range nNodes {
-			str += nNode.String() + " "
+			str += nNode.string() + " "
 		}
 		str += "\n"
 	}
@@ -41,6 +43,36 @@ func (g *Graph) String() string {
 	return str
 }
 
-func (n *Node) String() string {
+func (n *Node) string() string {
 	return fmt.Sprintf("%v", n.Val)
+}
+
+func (g *Graph) Traverse() []string {
+	var data []string
+	q := NewQueue()
+	head := g.Nodes[0]
+	q.Enqueue(*head)
+
+	visited := make(map[*Node]bool)
+	visited[head] = true
+
+	for {
+		if q.IsEmpty() {
+			break
+		}
+		node := q.Dequeue()
+		visited[node] = true
+		nNodes := g.Edges[*node]
+		for _, next := range nNodes {
+			if visited[next] {
+				continue
+			}
+			q.Enqueue(*next)
+			visited[next] = true
+		}
+
+		data = append(data, node.Val)
+	}
+
+	return data
 }
