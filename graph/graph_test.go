@@ -11,12 +11,12 @@ func setup() {
 	n1, n2, n3, n4, n5, n6 := Node{Val: "A"}, Node{Val: "B"}, Node{Val: "C"}, Node{Val: "D"}, Node{Val: "E"}, Node{Val: "F"}
 
 	graph = Graph{}
-	graph.AddNode(&n1)
-	graph.AddNode(&n2)
-	graph.AddNode(&n3)
-	graph.AddNode(&n4)
-	graph.AddNode(&n5)
-	graph.AddNode(&n6)
+	graph.AddVertex(&n1)
+	graph.AddVertex(&n2)
+	graph.AddVertex(&n3)
+	graph.AddVertex(&n4)
+	graph.AddVertex(&n5)
+	graph.AddVertex(&n6)
 
 	graph.AddEdge(&n1, &n2)
 	graph.AddEdge(&n1, &n3)
@@ -31,7 +31,12 @@ func TestGraph_String(t *testing.T) {
 	assert.Equal(t, "A -> B C D \nB -> A E \nC -> A E \nD -> A \nE -> B C F \nF -> E \n", graph.String())
 }
 
-func TestTraverse(t *testing.T) {
+func TestBFS(t *testing.T) {
 	setup()
-	assert.Equal(t, []string{"A", "B", "C", "D", "E", "F"}, graph.Traverse())
+	assert.Equal(t, []string{"A", "B", "C", "D", "E", "F"}, graph.BFS())
+}
+
+func TestDFS(t *testing.T) {
+	setup()
+	assert.Equal(t, []string{"A", "D", "C", "E", "F", "B"}, graph.DFS())
 }
