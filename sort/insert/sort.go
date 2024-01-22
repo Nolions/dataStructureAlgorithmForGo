@@ -1,6 +1,6 @@
-package sort
+package insert
 
-func insertSort(data []int) {
+func sort(data []int) {
 	for i := 0; i < len(data); i++ {
 		v := data[i]
 

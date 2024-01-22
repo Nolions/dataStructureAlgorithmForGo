@@ -9,3 +9,4 @@
       1. Binary Tree
       2. Binary Search Tree
 5. [Graph](./graph)
+6. [Sort](./sort)

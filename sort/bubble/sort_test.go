@@ -1,14 +1,14 @@
-package sort
+package bubble
 
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-func TestSelectionSort(t *testing.T) {
+func TestSort(t *testing.T) {
 	data := []int{8, 4, 3, 0, 5, 7, 6}
 
-	selectionSort(data)
+	sort(data)
 	expected := []int{0, 3, 4, 5, 6, 7, 8}
 
 	assert.Equal(t, expected, data)

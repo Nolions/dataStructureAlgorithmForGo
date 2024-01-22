@@ -1,6 +1,6 @@
-package sort
+package selection
 
-func selectionSort(data []int) {
+func sort(data []int) {
 	for i := 0; i < len(data)-1; i++ {
 		minIndex := i // 紀錄陣列中最小值索引
 		for j := i + 1; j < len(data); j++ {
